@@ -18,5 +18,7 @@ GET
 
 执行
 ====
->>> export FLASK_APP=app.py
->>> flask run
+> $ export FLASK_APP=app.py
+> $ flask run
+
+> $ flask --app app.py --debug run
