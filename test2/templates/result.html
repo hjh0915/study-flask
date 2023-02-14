@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>用户信息</title>
+      <link href="../static/css/bootstrap.css" rel="stylesheet">
+      <link href="../static/js/bootstrap.js" rel="stylesheet">
+   </head>
+   <body>
+        <!--========================== Header ============================-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a  class="navbar-brand" href="#">LOGO</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mynavbar">
+                    <!-- 导航栏元素居右使用ms-auto -->
+                    <span class="navbar-text ms-auto">{{ admin }}, 欢迎回来</span>
+                    <a class="nav-link" href="/login">退出</a>
+                </div>
+            </div>
+        </nav>
+
+        <!--========================== Container ============================-->
+        <div class="container">
+            <div class="row">
+                <h3 style="font-weight: 700;">俱乐部游戏用户列表</h3>
+            </div>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">用户ID</th>
+                        <th scope="col">头像</th>
+                        <th scope="col">昵称</th>
+                        <th scope="col">绑定手机</th>
+                        <th scope="col">操作</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        {% for u in user %}
+                        <tr>
+                            <th>{{ loop.index }}</th>
+                            <th>{{ u.uid }}</th>
+                            <th>{{ u.img }}</th>
+                            <th>{{ u.uname }}</th>
+                            <th>{{ u.tel }}</th>
+                            <th>
+                                <form action="/update" method="POST">
+                                    <input type="submit"/>
+                                </form>
+                            </th>
+                         </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+   </body>
+</html>
