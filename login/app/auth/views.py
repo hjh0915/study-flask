@@ -13,6 +13,7 @@ def login():
         
         # 验证User
         u = User.query.filter_by(username=username).first()
+        print(u.password_hash)
         if u == None:
             return render_template('auth/login.html')
         
